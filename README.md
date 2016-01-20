@@ -10,6 +10,7 @@ IR remote control for my Car PC. Emulates keyboard and mouse USB HID Combo devic
 
 ## Software
 
+- Arduino IDE 1.6 with Digispark boards support
 - Adafruit HID Combo libraries (also included in src/libraries): https://github.com/adafruit/Adafruit-Trinket-USB
 
 ## Description
