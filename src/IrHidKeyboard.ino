@@ -1,8 +1,14 @@
+
 #include "TrinketHidCombo.h"
+
+// Led pin depends on board revision
 #define LED_PIN 1
+
+// IR receiver is connected to PIN_2 (INT_0)
 #define IR_PIN 2
 #define IR_INT 0
 
+// IR command codes
 #define PLAY  40
 #define UP     88
 #define DOWN   120
@@ -15,7 +21,7 @@
 #define VOL_DWN 248
 
 int pos = 0;
-uint32_t data;
+uint32_t data = 0;
 
 uint8_t addressToRead = 0;
 uint8_t commandToRead = 0;
@@ -41,6 +47,7 @@ void loop()
     digitalWrite(LED_PIN, HIGH);
 
 /*
+    // Uncomment this code to with keyboard IR command codes
     char str[15];
     sprintf(str, "%d", commandToRead);
     TrinketHidCombo.println(str);
@@ -92,6 +99,7 @@ void loop()
 
   TrinketHidCombo.poll();
 }
+
 void irRead() {
   uint16_t time = micros();
   uint16_t dt = time - timePrev;
@@ -119,8 +127,10 @@ void irRead() {
 
 int deltaState(uint16_t dt) {
   if (dt > 12000 && dt < 14000) {
+    // begin
     return 1;
   } else if (dt > 1000 && dt < 2500) {
+    // data
     return 2;
   } else {
     return 0;
