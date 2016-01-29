@@ -5,8 +5,10 @@ IR remote control for my Car PC. Emulates keyboard and mouse USB HID Combo devic
 
 - Digispark USB board or other attiny85 controller
 - Any 38kHz IR receiver
-- 47 ohm resistor
-- (opt. I didn't use) 47uF capacitor (1uF to 100uF shoud work)
+- 10 kOhm resistor
+
+### Arduino prototype scheme
+![Arduino prototype scheme](https://raw.githubusercontent.com/horse315/IrHidKeyboard/master/ir_remote.png)
 
 ## Software
 
